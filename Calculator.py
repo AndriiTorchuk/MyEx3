@@ -5,7 +5,7 @@ Calculator
 from tkinter import *
 
 def iCalc(source, side):
-    storeObj = Frame(source, borderwidth=4, bd=4, bg="blue")
+    storeObj = Frame(source, borderwidth=4, bd=4, bg="red")
     storeObj.pack(side=side, expand=YES, fill=BOTH)
     return storeObj
 
@@ -22,7 +22,17 @@ class app(Frame):
         self.master.title('Calculator')
 
         display = StringVar()
-        Entry(self, relief=RAISED, textvariable=display, justify='right', bd=30, bg="blue").pack(side=TOP, expand=YES, fill=BOTH)
+        Entry(self, relief=RAISED, textvariable=display, justify='right', bd=3, bg="blue").pack(side=TOP, expand=YES, fill=BOTH)
+
+
+        for clearBut in(["CE"], ["C"]):
+            erase = iCalc(self, TOP)
+            for ichar in clearBut:
+                button(erase, LEFT, ichar, lambda storeObj=display, q=ichar: storeObj.set(''))
+
+        
+
+        
 
 
 
