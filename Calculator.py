@@ -25,19 +25,22 @@ class app(Frame):
         Entry(self, relief=RAISED, textvariable=display, justify='right', bd=3, bg="blue").pack(side=TOP, expand=YES, fill=BOTH)
 
 
-        for clearBut in(["CE"], ["C"]):
+        for clearBut in(["C"]):
             erase = iCalc(self, TOP)
             for ichar in clearBut:
                 button(erase, LEFT, ichar, lambda storeObj=display, q=ichar: storeObj.set(''))
+        
+        for nambutton in("789/", "456*", "123-", "0.+"):
+            functionNam = iCalc(self, TOP)
+            for char in nambutton:
+                button(functionNam, LEFT, char, lambda storeObj=display, q=char: storeObj.set(storeObj.get() + q))
+
+        for enterBut in(["="]):
+            functionEnter = iCalc(self, TOP)
+            for echar in enterBut:
+                button(functionEnter, LEFT, echar, lambda storeObj=display, q=ichar: storeObj.set(''))
 
         
-
-        
-
-
-
-
-
 
 
 if __name__ =='__main__':
